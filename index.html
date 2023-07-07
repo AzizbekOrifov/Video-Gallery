@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Video Player in JavaScript | CodingLab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Boxicons Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="main-video">
+          <video
+            src="https://youtu.be/hM_zv3ALGUA"
+            autoplay
+            muted
+            controls
+          ></video>
+          <i class="bx bx-x close"></i>
+        </div>
+        <div class="videos">
+          <video src="videos/button.mp4">
+            <iframe
+              width="853"
+              height="480"
+              src="https://www.youtube.com/embed/hM_zv3ALGUA"
+              title="FLYING OVER DUBAI (4K UHD) - Relaxing Music Along With Beautiful Nature Videos - 4K Video HD"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </video>
+          <i class="bx bx-play-circle"></i>
+        </div>
+        <div class="videos">
+          <video src="videos/website.mp4"></video>
+          <i class="bx bx-play-circle"></i>
+        </div>
+        <div class="videos">
+          <video src="videos/sidebar.mp4"></video>
+          <i class="bx bx-play-circle"></i>
+        </div>
+        <div class="videos">
+          <video src="https://youtu.be/hM_zv3ALGUA"></video>
+          <i class="bx bx-play-circle"></i>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const section = document.querySelector("section"),
+        mainVideo = document.querySelector(".main-video video"),
+        videos = document.querySelectorAll(".videos"),
+        close = document.querySelector(".close");
+
+      for (var i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("click", (e) => {
+          const target = e.target;
+          section.classList.add("active");
+          target.classList.add("active");
+          let src = document.querySelector(".videos.active video").src;
+          mainVideo.src = src;
+
+          close.addEventListener("click", () => {
+            section.classList.remove("active");
+            target.classList.remove("active");
+            mainVideo.src = "";
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
